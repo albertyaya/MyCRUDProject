@@ -11,14 +11,21 @@ namespace ProCRUD.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Table
     {
+        [DisplayName("編號")]
         public int Id { get; set; }
+        [DisplayName("帳號")]
         public string Account { get; set; }
+        [DisplayName("密碼")]
         public string Password { get; set; }
+        [DisplayName("姓名")]
         public string UserName { get; set; }
+        [DisplayName("電子郵件")]
         public string Email { get; set; }
+        [DisplayName("地址")]
         public string Address { get; set; }
     }
 }

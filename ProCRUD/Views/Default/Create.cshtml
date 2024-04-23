@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProCRUD.Models.Table>
+﻿@model  ProCRUD.Models.Table
 
 @{
     ViewBag.Title = "Create";
@@ -10,48 +10,38 @@
     @Html.ActionLink("Back to Index", "Read")
 </p>
 
-    @using (Html.BeginForm())
-    {
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    @Html.Label("Account"):
-                   <div>
-                    @Html.TextBox("Account")
-                    </div>
-                </div>
 
-                <div class="col">
-                    @Html.Label("Password"):
-                    <div>
-                    @Html.TextBox("Password")
-                </div>
-                <div class="col">
-                    @Html.Label("UserName"):
-                    <div>
-                        @Html.TextBox("UserName")
-                    </div>
-                </div>
-                <div class="col">
-                    @Html.Label("Email"):
-                    <div>
-                        @Html.TextBox("Email")
-                    </div>
-                </div>
-                <div class="col">
-                    @Html.Label("Address"):
-                    <div></div>
-                    @Html.TextBox("Address")
-                </div>
-                    <br />
-                </div>
-            </div>
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" name="add" value="註冊" class="btn btn-primary">
-            </div>
-            
-
-        </div>
-    }
+    <div class="form-group">
+        @Html.LabelFor(m => m.Account) <br>
+        @Html.TextBoxFor(m => m.Account)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)<br>
+        @Html.TextBoxFor(m => m.Password)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName) <br>
+        @Html.TextBoxFor(m => m.UserName)      
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)<br>
+        @Html.TextBoxFor(m => m.Email)    
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address)<br>
+        @Html.TextBoxFor(m => m.Address)
+    </div>
+      
    
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" name="add" value="註冊" class="btn btn-primary">
+    </div>
+
+
+
+}
