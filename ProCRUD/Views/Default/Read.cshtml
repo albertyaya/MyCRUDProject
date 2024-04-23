@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProCRUD.Models.Table>
+
+@{
+    ViewBag.Title = "Read";
+}
+
+<h2>Read</h2>
+<div>
+    @Html.ActionLink("Create New Member", "Create")
+</div>
+
+
+
+@if (Model.Count()>0)
+{
+  <table class="table">
+    <tr >
+        <th>
+            @Html.DisplayNameFor(m => m.Account)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.Password)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.UserName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.Email)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(m => m.Address)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => item.Account)</td>
+            <td>@Html.DisplayFor(m => item.Password)</td>
+            <td>@Html.DisplayFor(m => item.UserName)</td>
+            <td>@Html.DisplayFor(m => item.Email)</td>
+            <td>@Html.DisplayFor(m => item.Address)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" }) |
+                
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id },new{onclick = "return confirm('確定刪除嗎?')", @class="btn btn-danger"} )
+            </td>
+        </tr>
+    }
+        </table>
+}
+else { <p style="color:red">no record！</p>}
